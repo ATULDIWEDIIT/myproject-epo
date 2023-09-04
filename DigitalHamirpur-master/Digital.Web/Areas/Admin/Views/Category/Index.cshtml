@@ -1,0 +1,137 @@
+﻿@using Digital.Core;
+@using Digital.Web;
+@{
+    Layout = "_adminLayout";
+    ViewData["Title"] = "Category";
+
+}
+<!--start page wrapper -->
+<div class="main-wrapper">
+    <!--breadcrumb start-->
+    <div class="page-title-box">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-sm-5 col-xl-6">
+                    <div class="page-title">
+                        <h4>Category</h4>
+                        <ol class="breadcrumb mb-3 mb-md-0">
+                            <li class="breadcrumb-item">
+                                <a href="index.html"><i class="fa fa-home me-1"></i>Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Add Category
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-sm-7 col-xl-6">
+                    <div class="d-flex justify-content-sm-end">
+                        @* <a type="button" class="btn btn-light" href="@Url.Action("CreateEdit","Category")">
+                        <i class="fa fa-plus me-1"></i>Add Category &nbsp;&nbsp;
+                        </a>
+
+                        <a href="/admin/Category/delete/" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">Delete</a>
+                        *@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Notification")
+    <br />
+    <div class="page-content mt--65">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add Category</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="grid-category-details">
+                                <thead>
+                                    @*<tr>
+                                        <th scope="col" class="text-center">
+                                            #
+                                        </th>
+                                        <th scope="col">Task Name</th>
+                                        <th scope="col">Progress</th>
+                                        <th scope="col">Members</th>
+                                        <th scope="col">Due Date</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>*@
+                                    <tr>
+                                        <th>Id</th>
+                                        <th width="2%">#</th>
+                                        <th width="50%">Name</th>
+                                        <th width="15%">Description</th>
+                                        <th>Active</th>
+                                        <th width="15%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @*<section class="content mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="/admin/Category/CreateEdit" class="btn btn-primary">Add New</a>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="grid-category-details" class="table table-bordered table-condensed custom-grid-table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th width="2%">#</th>
+                                        <th width="50%">Name</th>
+                                        <th width="15%">Description</th>
+                                        <th>Active</th>
+                                        <th width="15%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot></tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>*@
+</div>
+<!--end page wrapper -->
+<!--start overlay-->
+<div class="overlay toggle-icon">
+</div>
+<!--end overlay-->
+@{
+    var editModel = new Modal { ID = "modal-add-edit-subcat", AreaLabeledId = "modal-add-edit-subcat-label", Size = ModalSize.Large };
+    var viewModel = new Modal { ID = "modal-add-view-subcat", AreaLabeledId = "modal-add-view-subcat-label", Size = ModalSize.Large };
+    var deleteModel = new Modal { ID = "modal-delete", AreaLabeledId = "modal-action-delete-label", Size = ModalSize.Medium };
+}
+@*@await Html.PartialAsync("_DeleteConfirmationModal", deleteModel)*@
+@await Html.PartialAsync("_Modal", editModel)
+@await Html.PartialAsync("_Modal", viewModel)
+<script src="~/scripts/custom/category/index.js" asp-append-version="true"></script>
+

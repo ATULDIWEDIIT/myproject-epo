@@ -1,0 +1,85 @@
+﻿@model Digital.Dto.SubCategoryViewDto
+@{
+    ViewData["Title"] = "CreteEdit";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+
+<!--start page wrapper -->
+<div class="main-wrapper">
+    <!--breadcrumb start-->
+    <div class="page-title-box">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-sm-5 col-xl-6">
+                    <div class="page-title">
+                        <h4>SubCategory</h4>
+                        <ol class="breadcrumb mb-3 mb-md-0">
+                            <li class="breadcrumb-item">
+                                <a href="index.html"><i class="fa fa-home me-1"></i>Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Add SubCategory
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-sm-7 col-xl-6">
+                    <div class="d-flex justify-content-sm-end">
+                        <button type="button" class="btn btn-light">
+                            <i class="fa fa-plus me-1"></i> Add SubCategory
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumb end-->
+    <div class="page-content mt--65">
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Add SubCategory</h4>
+            </div>
+            <div class="card-body p-4">
+
+                <div class="form-body mt-4">
+                    <form id="frmCategory" method="post" asp-controller="Category" asp-action="CreateEdit">
+                       @Html.HiddenFor(m=>Model.SubcategoryId)                       
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Title, "Sub Category Title:", new { @class = "form-label" })
+                                    @Html.TextBoxFor(m=>Model.Title,new{@class="form-control"})
+                                    @Html.ValidationMessageFor(model => Model.Title, "", new { @class = "text-red" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Description, "Sub Category Description:", new { @class = "form-label" })
+                                    @Html.TextAreaFor(m=>Model.Description,new{@class="form-control",@rows="3"})
+                                    @Html.ValidationMessageFor(model => Model.Description, "", new { @class = "text-red" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CategoryId, "Category:", new { @class = "form-label" })
+                                    @Html.DropDownListFor(model=>Model.CategoryId,(List<SelectListItem>)ViewBag.CategoryList,"Select Category", new { @class = "form-select"})
+                                    @Html.ValidationMessageFor(model => Model.CategoryId, "", new { @class = "text-red" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => Model.IsActive, "Active:", new { @class = "form-label" })
+                                    @Html.CheckBoxFor(model => Model.IsActive, new { id = "active" })
+                                    @Html.ValidationMessageFor(model => Model.IsActive, "", new { @class = "text-red" })
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="d-grid">
+                                        <input type="submit" class="btn btn-primary" value="Save Product" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

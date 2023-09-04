@@ -1,0 +1,118 @@
+﻿@model Digital.Dto.ProductViewDto
+@{
+    ViewData["Title"] = "CreateEdit";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+
+<!--start page wrapper -->
+<div class="main-wrapper">
+    <!--breadcrumb start-->
+    <div class="page-title-box">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-sm-5 col-xl-6">
+                    <div class="page-title">
+                        <h4>Product</h4>
+                        <ol class="breadcrumb mb-3 mb-md-0">
+                            <li class="breadcrumb-item">
+                                <a href="index.html"><i class="fa fa-home me-1"></i>Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Add New Product
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-sm-7 col-xl-6">
+                    <div class="d-flex justify-content-sm-end">
+                        <button type="button" class="btn btn-light">
+                            <i class="fa fa-plus me-1"></i> Action
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumb end-->
+    <div class="page-content mt--65">
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Add New Product</h4>
+            </div>
+            <div class="card-body p-4">
+                <div class="form-body mt-4">
+                    <div class="row">
+                        <form id="frmProduct" method="post" asp-controller="Product" asp-action="CreateEdit" enctype="multipart/form-data">
+                            <div class="col-12">
+                                @Html.HiddenFor(m=>Model.ProductId)
+                                <div class="col-12">
+                                    @Html.LabelFor(model => model.SubcategoryId, "Sub Category:", new { @class = "form-label" })
+                                    @Html.DropDownListFor(model=>Model.SubcategoryId,(List<SelectListItem>)ViewBag.SubCategoryList,"Select SubCategory", new { @class = "form-select"})
+                                    @Html.ValidationMessageFor(model => Model.SubcategoryId, "", new { @class = "text-red" })
+                                </div>
+                                <div class="form-group mt-1">
+                                    @Html.LabelFor(model => model.Title, "Product Title:", new { @class = "form-label" })
+                                    @Html.TextBoxFor(m=>Model.Title,new{@class="form-control"})
+                                    @Html.ValidationMessageFor(model => Model.Title, "", new { @class = "text-red" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Description, "Description:", new { @class = "form-label" })
+                                    @Html.TextAreaFor(m=>Model.Description,new{@class="form-control",@rows="3"})
+                                    @Html.ValidationMessageFor(model => Model.Description, "", new { @class = "text-red" })
+
+                                </div>
+                                <div class="form-group">
+                                    @*<label for="formFile" class="form-label">Image</label>
+                                    <input class="form-control" id="formFile" type="file"
+                                    accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
+                                    multiple>*@
+                                    @Html.LabelFor(model => model.file, "Description:", new { @class = "form-label" })
+                                    @Html.TextBoxFor(m=>Model.file,new{@class="form-control",@type="file"})
+                                    @Html.ValidationMessageFor(model => Model.file, "", new { @class = "text-red" })
+
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Price, "Price:", new { @class = "form-label" })
+                                        @Html.TextBoxFor(m=>Model.Price,new{@class="form-control"})
+                                        @Html.ValidationMessageFor(model => Model.Price, "", new { @class = "text-red" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.ComparePrice, "Compare at Price:", new { @class = "form-label" })
+                                        @Html.TextBoxFor(m=>Model.ComparePrice,new{@class="form-control"})
+                                        @Html.ValidationMessageFor(model => Model.ComparePrice, "", new { @class = "text-red" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.CostPrice, "Cost Per Price:", new { @class = "form-label" })
+                                        @Html.TextBoxFor(m=>Model.CostPrice,new{@class="form-control"})
+                                        @Html.ValidationMessageFor(model => Model.CostPrice, "", new { @class = "text-red" })
+                                    </div>
+                                    <div class="col-md-6 mt-4">
+                                        @Html.LabelFor(model => Model.IsActive, "Active:", new { @class = "form-label" })
+                                        @Html.CheckBoxFor(model => Model.IsActive, new { id = "active" })
+                                        @Html.ValidationMessageFor(model => Model.IsActive, "", new { @class = "text-red" })
+
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary">Save Product</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end page wrapper -->
+<!--start overlay-->
+<div class="overlay toggle-icon">
+</div>
+<!--end overlay-->
