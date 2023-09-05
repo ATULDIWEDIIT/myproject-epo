@@ -43,7 +43,7 @@
                         <div class="col d-none d-lg-block">
                             <div class="top-nav">
                                 <ul>
-                                    <li><i class="fa fa-phone"></i>+91 6386455460</li>
+                                    <li><i class="fa fa-phone"></i><a>+91 6386455460</a></li>
                                     <li><a href="mailto:demo@example.com"><i class="fa fa-envelope-o"></i> mayankgupta0819@gmail.com</a></li>
                                     <li><a href="/Account/login"><i class="fa fa-user"></i> Account</a></li>
                                 </ul>
@@ -55,14 +55,15 @@
             <!-- Header top area end -->
             <!-- Header action area start -->
             <div class="header-bottom  d-none d-lg-block">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row justify-content-between align-items-center">
-                        <div class="col-lg-3 col">
+                        <div class="col-lg-6 col">
                             <div class="header-logo">
-                                <a href="index.html"><img src="~/Content/img/Capture.png"height="60px" width="60px" alt="Site Logo" /></a>
+                                <a href="index.html"><img src="~/Content/img/Capture.png" height="60px" width="60px" alt="Site Logo" /></a>
                             </div>
                         </div>
-                        <div class="col-lg-6 d-none d-lg-block">
+
+                        <div class="col-lg-4 d-none d-lg-block">
                             <div class="search-element">
                                 <form action="#">
                                     <input type="text" placeholder="Search" />
@@ -70,8 +71,22 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-3 col">
-                           
+                        <div class="col-lg-2 col">
+                            <div class="header-actions">
+                                <!-- Single Wedge Start -->
+                                <a href="#offcanvas-wishlist" class="header-action-btn offcanvas-toggle">
+                                    <i class="pe-7s-like"></i>
+                                </a>
+                                <!-- Single Wedge End -->
+                                <a href="#offcanvas-cart" class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
+                                    <i class="pe-7s-shopbag"></i>
+                                    <span class="header-action-num">01</span>
+                                    <!-- <span class="cart-amount">€30.00</span> -->
+                                </a>
+                                <a href="#offcanvas-mobile-menu" class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
+                                    <i class="pe-7s-menu"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,7 +132,7 @@
             <!-- Header action area end -->
             <!-- header navigation area start -->
             <div class="header-nav-area d-none d-lg-block sticky-nav">
-                <div class="container">
+                <div class="container-fluid" style="background-color: #266bf9;">
                     <div class="header-nav">
                         <div class="main-menu position-relative">
                             <ul>
