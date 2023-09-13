@@ -3,10 +3,7 @@ using Digital.Web.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Digital.Web.Areas.Admin.Controllers
-{
-
-
-    
+{   
     public class DashboardController : BaseController
     {
         public IActionResult Index()

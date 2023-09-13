@@ -28,8 +28,6 @@ namespace Digital.Web.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            
-
             return View();
         }
 

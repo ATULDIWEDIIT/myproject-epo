@@ -118,9 +118,6 @@ namespace Digital.Web.Areas.Admin.Controllers
                 _toastNotification.AddErrorToastMessage("Error Occured");
                 return RedirectToAction("Doctor");
             }
-
-
-
         }
 
 
